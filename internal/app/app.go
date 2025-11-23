@@ -37,6 +37,10 @@ func RunApp(ctx context.Context) error {
 		return fmt.Errorf("failed to start database(postgreSQL), метод RunApp: %w", err)
 	}
 
+	if err := postgres.RunMigrations(ctx, cfg, log); err != nil {
+		return fmt.Errorf("migrations error, метод RunApp: %w", err)
+	}
+
 	if err := RunRestServer(ctx, cfg, log, postgresDB); err != nil {
 		log.Error("failed to start rest server, метод RunApp", zap.Error(err))
 		return fmt.Errorf("failed to start rest server, метод RunApp: %w", err)

@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 
+	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/pressly/goose"
 	"go.uber.org/zap"
 )
@@ -20,7 +21,7 @@ func RunMigrations(ctx context.Context, cfg config.Config, log *zap.Logger) erro
 		return fmt.Errorf("opening error pgx: %w", err)
 	}
 	defer db.Close()
-	if err := goose.Up(db, "./migrations"); err != nil {
+	if err := goose.Up(db, "./app/migrations"); err != nil {
 		return fmt.Errorf("error starting migration: %w", err)
 	}
 
