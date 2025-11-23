@@ -4,6 +4,7 @@ import (
 	"avito-test/internal/entity"
 	Error "avito-test/pkg/errors"
 	"errors"
+	"fmt"
 	"net/http"
 
 	"go.uber.org/zap"
@@ -11,11 +12,12 @@ import (
 
 func (c *ControllerImpl) RemapReview(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
+	decoder := ValidJson(r)
 	var re entity.RemapReview
 
-	if err := Json.NewDecoder(r.Body).Decode(&re); err != nil {
+	if err := decoder.Decode(&re); err != nil {
 		c.Log.Error("Ошибка обработки пути /pullRequest/reassign, метод RemapReview", zap.Error(err))
-		CreateError("400", "Ошибка валидации запроса", w)
+		CreateError("400", fmt.Sprintf("Ошибка валидации запроса, проверьте теги: %v", err), w)
 		return
 	}
 

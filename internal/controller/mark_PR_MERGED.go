@@ -4,6 +4,7 @@ import (
 	"avito-test/internal/entity"
 	Error "avito-test/pkg/errors"
 	"errors"
+	"fmt"
 	"net/http"
 
 	"go.uber.org/zap"
@@ -11,11 +12,12 @@ import (
 
 func (c *ControllerImpl) MarkPRMERGED(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
+	decoder := ValidJson(r)
 	var m entity.MergePRRequest
 
-	if err := Json.NewDecoder(r.Body).Decode(&m); err != nil {
+	if err := decoder.Decode(&m); err != nil {
 		c.Log.Error("Ошибка обработки пути /pullRequest/merge, метод MarkPRMERGED", zap.Error(err))
-		CreateError("400", "Ошибка валидации запроса", w)
+		CreateError("400", fmt.Sprintf("Ошибка валидации запроса, проверьте теги: %v", err), w)
 		return
 	}
 

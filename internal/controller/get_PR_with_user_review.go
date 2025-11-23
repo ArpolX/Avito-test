@@ -13,7 +13,7 @@ func (c *ControllerImpl) GetPRWithUserReview(w http.ResponseWriter, r *http.Requ
 	PROrig, err := c.Srv.GetPRWithUserReview(ctx, userId)
 	if err != nil {
 		c.Log.Error("Ошибка обработки пути /users/getReview, метод GetPRWithUserReview", zap.Error(err))
-		CreateError("400", err.Error(), w)
+		CreateError("400", "Ошибка валидации запроса", w)
 		return
 	}
 
