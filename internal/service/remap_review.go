@@ -6,6 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"math/rand"
 
 	"github.com/jackc/pgx/v5"
 	"go.uber.org/zap"
@@ -43,7 +44,7 @@ func (s *ServiceImpl) RemapReview(ctx context.Context, remap entity.RemapReview)
 
 	teamUsers, err := s.Repo.GetUsersWithTeam(ctx, oldUser.TeamName)
 	if err != nil {
-		s.Log.Error("Ошибка GetUsersWithTeam", zap.Error(err))
+		s.Log.Error("Ошибка при получении users, метод RemapReview", zap.Error(err))
 		return entity.PullRequest{}, err
 	}
 
@@ -53,30 +54,29 @@ func (s *ServiceImpl) RemapReview(ctx context.Context, remap entity.RemapReview)
 		current[r] = struct{}{}
 	}
 
-	var newReviewer string
+	newReviewer := make([]string, 0, len(teamUsers)-2) // минус автор и действующий ревьюер
 	for _, u := range teamUsers {
 		if u.UserId != remap.OldUserId && u.UserId != pr.AuthorId && u.IsActive {
 			if _, exists := current[u.UserId]; exists {
 				continue
 			}
-			newReviewer = u.UserId
-			break
+			newReviewer = append(newReviewer, u.UserId)
 		}
 	}
 
-	if newReviewer == "" {
+	if len(newReviewer) == 0 {
 		return entity.PullRequest{}, fmt.Errorf("%w", Error.NO_CANDIDATE)
 	}
 
 	for i, r := range pr.AssignedReviewers {
 		if r == remap.OldUserId {
-			pr.AssignedReviewers[i] = newReviewer
+			pr.AssignedReviewers[i] = newReviewer[rand.Intn(len(newReviewer))]
 			break
 		}
 	}
 
 	if err := s.Repo.UpdatePR(ctx, pr); err != nil {
-		s.Log.Error("Ошибка UpdatePR", zap.Error(err))
+		s.Log.Error("Ошибка при обновлении pr, метод RemapReview", zap.Error(err))
 		return entity.PullRequest{}, err
 	}
 
