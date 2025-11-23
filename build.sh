@@ -1,2 +1,2 @@
 #!/bin/bash
-docker compose up --force-recreated --build
+docker compose up --build
