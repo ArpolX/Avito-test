@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: "${DB_USER}"
       POSTGRES_DB: "${DB_NAME}"
     ports:
-      - "5431:${DB_PORT}"
+      - "${DB_PORT}:${DB_PORT}"
     networks:
       - avito_test_network
 
