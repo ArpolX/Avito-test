@@ -1,0 +1,27 @@
+run:
+  timeout: 5m
+  issues-exit-code: 1
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - gosimple
+    - unused
+    - gocyclo
+    - gofmt
+    - revive
+
+linters-settings:
+  gocyclo:
+    min-complexity: 15
+  gofmt:
+    simplify: true
+  revive:
+    config: revive.toml
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0

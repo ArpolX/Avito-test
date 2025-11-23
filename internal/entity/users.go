@@ -23,17 +23,6 @@ type SetIsActiveRequest struct { // метод SetFlagIsActive
 	IsActive bool   `json:"is_active"`
 }
 
-type CreatePRRequest struct { // метод CreatePRAndAppointReview
-	PullRequestID   string `json:"pull_request_id"`
-	PullRequestName string `json:"pull_request_name"`
-	AuthorID        string `json:"author_id"`
-}
-
-type MergePRRequest struct { // метод MarkPRMERGED
-	PullRequestID string `json:"pull_request_id"`
-}
-
-type RemapReview struct { // метод RemapReview
-	PullRequestId string `json:"pull_request_id"`
-	OldUserId     string `json:"old_user_id"`
+type TeamSwitchActiveRequest struct {
+	TeamName string `json:"team_name"`
 }

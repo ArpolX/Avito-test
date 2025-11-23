@@ -19,6 +19,7 @@ type Repository interface {
 	GetPR(ctx context.Context, prId string) (entity.PullRequest, error)
 	GetUsersWithTeam(ctx context.Context, teamName string) ([]entity.User, error)
 	GetPRSWithUser(ctx context.Context, userId string) ([]entity.PullRequestShort, error)
+	GetAllPR(ctx context.Context) ([]entity.PullRequestShort, error)
 }
 
 type RepositoryImpl struct {

@@ -16,6 +16,8 @@ type Service interface {
 	MarkPRMERGED(ctx context.Context, merge entity.MergePRRequest) (entity.PullRequest, error)
 	RemapReview(ctx context.Context, remap entity.RemapReview) (entity.PullRequest, error)
 	GetPRWithUserReview(ctx context.Context, userId string) ([]entity.PullRequestShort, error)
+	AmountPROpen(ctx context.Context) (int, error)
+	TeamSwitchActive(ctx context.Context, teamName string) (entity.Team, error)
 }
 
 type ServiceImpl struct {

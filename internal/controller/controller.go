@@ -19,6 +19,8 @@ type Controller interface {
 	MarkPRMERGED(w http.ResponseWriter, r *http.Request)
 	RemapReview(w http.ResponseWriter, r *http.Request)
 	GetPRWithUserReview(w http.ResponseWriter, r *http.Request)
+	AmountPROpen(w http.ResponseWriter, r *http.Request)
+	TeamSwitchActive(w http.ResponseWriter, r *http.Request)
 }
 
 type ControllerImpl struct {

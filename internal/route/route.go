@@ -12,6 +12,7 @@ func Handlers(ctrl controller.Controller) *chi.Mux {
 	r.Route("/team", func(r chi.Router) {
 		r.Post("/add", ctrl.CreateTeamWithUsers)
 		r.Get("/get", ctrl.GetTeamWithUsers)
+		r.Post("/switchFalse", ctrl.TeamSwitchActive)
 	})
 
 	r.Route("/users", func(r chi.Router) {
@@ -25,6 +26,8 @@ func Handlers(ctrl controller.Controller) *chi.Mux {
 		r.Post("/reassign", ctrl.RemapReview)
 
 	})
+
+	r.Get("/amount/prOpen", ctrl.AmountPROpen)
 
 	return r
 }

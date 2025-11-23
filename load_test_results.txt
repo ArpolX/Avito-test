@@ -1,0 +1,136 @@
+Эндпоинт: /team/get
+
+Summary:
+  Total:	0.2471 secs
+  Slowest:	0.0329 secs
+  Fastest:	0.0024 secs
+  Average:	0.0121 secs
+  Requests/sec:	8092.8880
+  
+  Total data:	790000 bytes
+  Size/request:	395 bytes
+
+Response time histogram:
+  0.002 [1]	|
+  0.005 [10]	|
+  0.009 [95]	|■■■■
+  0.012 [989]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.015 [725]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.018 [81]	|■■■
+  0.021 [7]	|
+  0.024 [6]	|
+  0.027 [5]	|
+  0.030 [37]	|■
+  0.033 [44]	|■■
+
+
+Latency distribution:
+  10% in 0.0093 secs
+  25% in 0.0103 secs
+  50% in 0.0114 secs
+  75% in 0.0124 secs
+  90% in 0.0142 secs
+  95% in 0.0176 secs
+  99% in 0.0319 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0001 secs, 0.0024 secs, 0.0329 secs
+  DNS-lookup:	0.0001 secs, 0.0000 secs, 0.0032 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0043 secs
+  resp wait:	0.0119 secs, 0.0024 secs, 0.0308 secs
+  resp read:	0.0000 secs, 0.0000 secs, 0.0020 secs
+
+Status code distribution:
+  [200]	2000 responses
+
+Эндпоинт: /team/add
+
+Summary:
+  Total:	0.0645 secs
+  Slowest:	0.0121 secs
+  Fastest:	0.0017 secs
+  Average:	0.0060 secs
+  Requests/sec:	1551.2693
+  
+  Total data:	27100 bytes
+  Size/request:	271 bytes
+
+Response time histogram:
+  0.002 [1]	|■■
+  0.003 [4]	|■■■■■■■■
+  0.004 [10]	|■■■■■■■■■■■■■■■■■■■
+  0.005 [21]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.006 [21]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.007 [10]	|■■■■■■■■■■■■■■■■■■■
+  0.008 [11]	|■■■■■■■■■■■■■■■■■■■■■
+  0.009 [13]	|■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.010 [3]	|■■■■■■
+  0.011 [4]	|■■■■■■■■
+  0.012 [2]	|■■■■
+
+
+Latency distribution:
+  10% in 0.0037 secs
+  25% in 0.0044 secs
+  50% in 0.0057 secs
+  75% in 0.0075 secs
+  90% in 0.0089 secs
+  95% in 0.0107 secs
+  99% in 0.0121 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0000 secs, 0.0017 secs, 0.0121 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0004 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	0.0058 secs, 0.0017 secs, 0.0118 secs
+  resp read:	0.0000 secs, 0.0000 secs, 0.0005 secs
+
+Status code distribution:
+  [200]	100 responses
+
+Эндпоинт: /pullRequest/create
+
+Summary:
+  Total:	0.1457 secs
+  Slowest:	0.0045 secs
+  Fastest:	0.0004 secs
+  Average:	0.0014 secs
+  Requests/sec:	6864.1253
+  
+  Total data:	74000 bytes
+  Size/request:	74 bytes
+
+Response time histogram:
+  0.000 [1]	|
+  0.001 [104]	|■■■■■■■■■■■■
+  0.001 [337]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.002 [277]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.002 [144]	|■■■■■■■■■■■■■■■■■
+  0.002 [78]	|■■■■■■■■■
+  0.003 [38]	|■■■■■
+  0.003 [13]	|■■
+  0.004 [3]	|
+  0.004 [4]	|
+  0.004 [1]	|
+
+
+Latency distribution:
+  10% in 0.0008 secs
+  25% in 0.0010 secs
+  50% in 0.0013 secs
+  75% in 0.0017 secs
+  90% in 0.0022 secs
+  95% in 0.0025 secs
+  99% in 0.0032 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0000 secs, 0.0004 secs, 0.0045 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0003 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0016 secs
+  resp wait:	0.0014 secs, 0.0004 secs, 0.0044 secs
+  resp read:	0.0000 secs, 0.0000 secs, 0.0010 secs
+
+Status code distribution:
+  [200]	1000 responses
+
+
